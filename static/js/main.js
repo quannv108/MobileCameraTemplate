@@ -220,9 +220,29 @@ function takeSnapshot() {
 
     // some API's (like Azure Custom Vision) need a blob with image data
     getCanvasBlob(canvas).then(function(blob) {
-
         // do something with the image blob
+        console.log('image blob ready');
+        const formData = new FormData();
 
+        formData.append('pic', blob);
+        let url = '/predict'
+        fetch(url, {
+            method: 'POST',
+            body: formData,
+        }).then(response => {
+            return response.json();
+        }).then(json => {
+            console.log(json);
+            console.log(json['error']);
+            console.log(json.data);
+            if (json && json['error'] == 0 && json.data){
+                let data = json.data;
+                let str = `Predict ${data["class"]}\nConfidence:${data["confidence"]}%\nPredict take ${data["eslapse"].toFixed(2)} ms`;
+                alert(str);
+            }else{
+                alert('Error when predict!' + json.toString());
+            }
+        });
     });
 
 }
@@ -239,7 +259,7 @@ function createClickFeedbackUI() {
     var overlay = document.getElementById("video_overlay");//.style.display;
 
     // sound feedback
-    var sndClick = new Howl({ src: ['snd/click.mp3'] });
+    var sndClick = new Howl({ src: ['static/snd/click.mp3'] });
 
     var overlayVisibility = false;
     var timeOut = 80;

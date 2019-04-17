@@ -61,7 +61,7 @@ button {
     top: calc(50% - 40px);
     width: 80px;
     height: 80px;
-    background-image: url('img/ic_photo_camera_white_48px.svg');
+    background-image: url('static/img/ic_photo_camera_white_48px.svg');
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.5);
 }
@@ -74,26 +74,26 @@ button {
     display: none;
     width: 64px;
     height: 64px;
-    background-image: url('img/ic_fullscreen_white_48px.svg');
+    background-image: url('static/img/ic_fullscreen_white_48px.svg');
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
 #toggleFullScreenButton[aria-pressed="true"] {
-    background-image: url('img/ic_fullscreen_exit_white_48px.svg');
+    background-image: url('static/img/ic_fullscreen_exit_white_48px.svg');
 }
 
 #switchCameraButton {
     display: none;
     width: 64px;
     height: 64px;
-    background-image: url('img/ic_camera_rear_white_36px.svg');
+    background-image: url('static/img/ic_camera_rear_white_36px.svg');
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
 #switchCameraButton[aria-pressed="true"] {
-    background-image: url('img/ic_camera_front_white_36px.svg');
+    background-image: url('static/img/ic_camera_front_white_36px.svg');
 }
 
 @media screen and (orientation:portrait) {
